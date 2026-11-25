@@ -35,7 +35,7 @@ That's it. Everything below is just the pieces that make that possible.
 | 6 | Windows victim VM created (empty shell) | ✅ done |
 | 7 | Auto-install file (so Windows installs itself) | ✅ done |
 | **8** | **Put Windows INTO that VM** | ⬅️ **YOU ARE STUCK HERE** |
-| 9 | Turn on logging + Sysmon + forwarder on Windows | ⬜ Claude does it after step 8 |
+| 9 | Turn on logging + Sysmon + forwarder on Windows | ⬜ scripted (vm-setup/) after step 8 |
 | 10 | Confirm logs arrive in Splunk | ⬜ |
 | 11 | Run 4 attacks & investigate them | ⬜ |
 | 12 | Write it up for your portfolio | ⬜ |

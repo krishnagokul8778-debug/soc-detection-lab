@@ -11,7 +11,7 @@
     * skips ALL OOBE / privacy / Microsoft-account screens
     * creates local admin  analyst / CHANGEME_LAB_PW  and auto-logs in
     * enables RDP and silently installs VirtualBox Guest Additions
-      (so Claude can drive provisioning via VBoxManage guestcontrol afterwards)
+      (so provisioning can be driven via VBoxManage guestcontrol afterwards)
 
   Delivery: baked into autounattend.iso and attached as a 2nd DVD. Windows Setup
   scans removable media for a file named autounattend.xml at the root and runs it.
