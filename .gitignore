@@ -23,3 +23,6 @@ id_rsa*
 # ---- OS / editor noise ----
 Thumbs.db
 .DS_Store
+
+# Lab credentials (local only)
+credentials.md
