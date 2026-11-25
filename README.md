@@ -11,6 +11,19 @@ The goal is not "collect logs." It's to close the loop from **attacker technique
 > Built as an interview portfolio project. The talking points are in
 > [`docs/INTERVIEW-NARRATIVE.md`](docs/INTERVIEW-NARRATIVE.md) — start there.
 
+## Investigated incidents
+
+Each attack was run from Kali, then investigated in Splunk like a real SOC ticket: alert, evidence, verdict and containment.
+
+| ID | Incident | MITRE ATT&CK | Verdict |
+|---|---|---|---|
+| [INC-001](docs/incidents/INC-001-network-recon.md) | Network reconnaissance (Nmap port scan) | T1046 | True positive |
+| [INC-002](docs/incidents/INC-002-rdp-smb-bruteforce.md) | Credential brute force (RDP/SMB) | T1110.001 | True positive, contained by account lockout |
+| [INC-003](docs/incidents/INC-003-encoded-powershell.md) | Encoded PowerShell execution | T1059.001, T1027 | True positive, decoded via Event 4104 |
+| [INC-004](docs/incidents/INC-004-discovery-burst.md) | Host discovery command burst | T1082, T1033, T1016, T1087, T1057 | True positive |
+| [INC-005](docs/incidents/INC-005-domain-recon.md) | Active Directory reconnaissance | T1087, T1069 | True positive |
+| [INC-006](docs/incidents/INC-006-password-spray.md) | Password spray against the domain | T1110.003 | True positive, 3 accounts compromised |
+
 ---
 
 ## Architecture
