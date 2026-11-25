@@ -1,0 +1,25 @@
+# ---- Large binaries / installers (redistributable from vendors, not source) ----
+installers/
+guest-staging/
+guest-staging-linux/
+*.msi
+*.iso
+*.deb
+*.vdi
+*.zip
+sysmon/bin/
+
+# ---- Logs & runtime artifacts ----
+*.log
+*.db
+var/
+
+# ---- Secrets / keys (NEVER commit) ----
+vm-setup/ssh/
+*.pem
+*.key
+id_rsa*
+
+# ---- OS / editor noise ----
+Thumbs.db
+.DS_Store

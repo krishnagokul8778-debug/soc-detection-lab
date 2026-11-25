@@ -1,0 +1,13 @@
+"_time",User,ParentImage,Image,CommandLine
+"2026-08-16 07:33:36.739 India Standard Time","SYSTEM
+SOC-VICTIM-WIN\analyst","C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe","C:\Windows\System32\whoami.exe","""C:\WINDOWS\system32\whoami.exe"""
+"2026-08-16 07:34:13.487 India Standard Time","SYSTEM
+SOC-VICTIM-WIN\analyst","C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe","C:\Windows\System32\ipconfig.exe","""C:\WINDOWS\system32\ipconfig.exe"" /all"
+"2026-08-16 07:34:26.056 India Standard Time","SYSTEM
+SOC-VICTIM-WIN\analyst","C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe","C:\Windows\System32\systeminfo.exe","""C:\WINDOWS\system32\systeminfo.exe"""
+"2026-08-16 07:34:37.873 India Standard Time","SYSTEM
+SOC-VICTIM-WIN\analyst","C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe","C:\Windows\System32\tasklist.exe","""C:\WINDOWS\system32\tasklist.exe"""
+"2026-08-16 07:34:44.791 India Standard Time","SYSTEM
+SOC-VICTIM-WIN\analyst","C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe","C:\Windows\System32\net.exe","""C:\WINDOWS\system32\net.exe"" user"
+"2026-08-16 07:35:09.631 India Standard Time","SYSTEM
+SOC-VICTIM-WIN\analyst","C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe","C:\Windows\System32\net.exe","""C:\WINDOWS\system32\net.exe"" localgroup administrators"

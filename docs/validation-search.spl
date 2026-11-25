@@ -1,0 +1,46 @@
+/* ====================================================================
+   Detection coverage scorecard.
+
+   Joins what was DETONATED (the Atomic Red Team manifest shipped to
+   index=attack_range) against what FIRED (notables written by the
+   correlation searches to index=notable), and reports, per technique,
+   whether the mapped detection actually triggered.
+
+   Run this on the Splunk host over a window covering your detonation run.
+   The whole point of the project is being able to show this table --
+   including the misses -- and explain each one.
+   ==================================================================== */
+
+/* what we set off */
+index=attack_range sourcetype=atomic_red_team_execution exec_status=executed
+| stats min(_time) as detonated_at by technique, detection, host
+
+/* what fired, from the summary index every correlation search writes to */
+| join type=left technique
+    [ search index=notable earliest=-24h
+      | stats max(_time) as fired_at, values(detection_name) as fired_rule, sum(risk_score) as risk by mitre_technique
+      | rename mitre_technique as technique ]
+
+| eval outcome = case(
+        isnotnull(fired_at) AND fired_at >= (detonated_at - 300), "DETECTED",
+        isnotnull(fired_at),                                       "fired outside window",
+        true(),                                                    "MISSED")
+| eval detection_lag_s = if(isnotnull(fired_at), round(fired_at - detonated_at, 0), null())
+| eval detonated_at = strftime(detonated_at, "%H:%M:%S"),
+       fired_at     = if(isnotnull(fired_at), strftime(fired_at, "%H:%M:%S"), "--")
+| table technique, detection, outcome, detonated_at, fired_at, detection_lag_s, risk
+| sort technique
+
+/* ------------------------------------------------------------------
+   Reading it:
+     DETECTED             rule fired within 5 min of detonation. Good.
+     MISSED               detonated, nothing fired. Either the telemetry
+                          is not arriving (check inputs.conf / audit policy)
+                          or the rule logic is wrong. Both are worth finding.
+     fired outside window stale notable from an earlier run -- clear the
+                          notable index between runs to avoid this.
+
+   A MISS is not a failure of the project; explaining WHY a specific
+   detection missed (no command-line auditing, wrong event channel, an
+   over-tight allowlist) is exactly the competence the lab is meant to show.
+   ------------------------------------------------------------------ */

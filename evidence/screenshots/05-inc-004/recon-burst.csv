@@ -1,0 +1,3 @@
+User,count,"tools_used","distinct_tools"
+"SOC-VICTIM-WIN\analyst",8,"C:\Windows\System32\ipconfig.exe C:\Windows\System32\net.exe C:\Windows\System32\net1.exe C:\Windows\System32\systeminfo.exe C:\Windows\System32\tasklist.exe C:\Windows\System32\whoami.exe",6
+SYSTEM,8,"C:\Windows\System32\ipconfig.exe C:\Windows\System32\net.exe C:\Windows\System32\net1.exe C:\Windows\System32\systeminfo.exe C:\Windows\System32\tasklist.exe C:\Windows\System32\whoami.exe",6

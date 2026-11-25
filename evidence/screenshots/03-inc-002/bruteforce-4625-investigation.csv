@@ -1,0 +1,2 @@
+TargetUser,SourceIP,LogonType,"failed_attempts"
+analyst,"192.168.56.102",3,16
